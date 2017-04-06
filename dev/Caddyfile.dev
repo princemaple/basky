@@ -1,0 +1,13 @@
+http://docker.dev {
+  redir https://docker.dev{uri}
+}
+
+https://docker.dev {
+  log stdout
+
+  root /var/www/html
+
+  gzip
+
+  tls /var/dev/cert.crt /var/dev/cert.key
+}

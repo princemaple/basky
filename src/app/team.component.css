@@ -1,0 +1,84 @@
+:host {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  margin: 16px 12px;
+}
+
+.score {
+  flex: 1;
+  position: relative;
+  background-color: #eee;
+  border-radius: 4px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 35vw;
+  line-height: 0.8;
+}
+
+.score-chart {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+}
+
+.court-players {
+  height: 64px;
+
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+}
+
+.court-player {
+  flex: 1;
+  position: relative;
+  background-color: #eee;
+  margin: 8px;
+  border-radius: 4px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.court-player {
+  .actions {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 100%;
+    width: 100%;
+    z-index: 99;
+  }
+
+  .action {
+    background-color: #eee;
+    height: 32px;
+    margin: 8px;
+    border-radius: 4px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 8px #000;
+  }
+}
+
+.bench-players {
+  display: flex;
+  justify-content: space-around;
+}
+
+.bench-player {
+  background-color: #ddd;
+  padding: 8px 12px;
+  border-radius: 4px;
+}

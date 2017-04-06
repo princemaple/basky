@@ -1,0 +1,30 @@
+<div class="score">
+  <ngx-charts-area-chart class="score-chart"
+      [results]="scoreByMinute | async"
+      [scheme]="{domain: ['#38f']}"
+      [yAxis]="true"
+      [gradient]="true"
+      [curve]="chartOptions.curve"></ngx-charts-area-chart>
+  <span class="score-value">{{totalScore | async}}</span>
+</div>
+
+<div class="court-players">
+  <div class="court-player" #button
+      *ngFor="let player of onCourtPlayers | async"
+      (document:click)="togglePlayerControl($event, button, player)">
+    {{player.name}}
+    <ul class="actions" *ngIf="player.controlOpen">
+      <li class="action" (click)="addScore(player, 2)">+2</li>
+      <li class="action" (click)="addScore(player, 3)">+3</li>
+      <li class="action" (click)="subOff(player)">off</li>
+    </ul>
+  </div>
+</div>
+
+<div class="bench-players">
+  <div class="bench-player"
+      *ngFor="let player of onBenchPlayers | async"
+      (click)="subOn(player)">
+    {{player.name}}
+  </div>
+</div>

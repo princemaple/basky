@@ -1,0 +1,27 @@
+version: '2'
+services:
+  caddy:
+    image: zzrot/alpine-caddy:v0.9.5
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - dist:/var/www/html
+      - ./dev:/var/dev
+      - ./dev/Caddyfile.dev:/etc/Caddyfile
+  assets:
+    build:
+      context: .
+      dockerfile: Dockerfile.assets
+    image: basky_assets
+    volumes:
+      - ./src:/var/build/src
+      - dist:/var/build/dist
+      - ./package.json:/var/build/package.json
+      - ./yarn.lock:/var/build/yarn.lock
+      - ./webpack.config.js:/var/build/webpack.config.js
+      - ./tsconfig.json:/var/build/tsconfig.json
+    command: yarn run build:dev
+volumes:
+  dist:
+    driver: local

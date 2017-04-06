@@ -1,0 +1,11 @@
+<header>
+  <clock [duration]="duration"
+      (minute)="setTime('minute', $event)"
+      (second)="setTime('second', $event)"></clock>
+</header>
+<main>
+  <team [team]="teams.L" [minute]="time.minute" (score)="score('L', $event)"
+      (subOn)="subOn('L', $event)" (subOff)="subOff('L', $event)"></team>
+  <team [team]="teams.R" [minute]="time.minute" (score)="score('R', $event)"
+      (subOn)="subOn('R', $event)" (subOff)="subOff('R', $event)"></team>
+</main>

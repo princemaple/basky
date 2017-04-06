@@ -1,0 +1,14 @@
+FROM node:7-slim
+
+WORKDIR /var/build
+
+RUN curl -o- -L https://yarnpkg.com/install.sh | bash
+
+COPY package.json /var/build/package.json
+COPY yarn.lock /var/build/yarn.lock
+RUN ~/.yarn/bin/yarn install
+
+COPY webpack.config.js /var/build/webpack.config.js
+COPY tsconfig.json /var/build/tsconfig.json
+
+CMD ["/root/.yarn/bin/yarn", "run", "build:prod"]

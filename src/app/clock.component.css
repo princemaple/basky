@@ -1,0 +1,10 @@
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+.time-left {
+  background-color: #aaa;
+  font-size: 3vw;
+  padding: 12px;
+}
